@@ -67,8 +67,21 @@ toastCloseBtn.addEventListener('click', function () {
 });
 
 
+const openBtn = document.querySelector('.nav-open-btn');
+const nav = document.querySelector('.header2');
+const closeBtn = document.querySelector('.nav-close-btn'); // Assuming you have a separate close button
 
+if (openBtn) {
+    openBtn.addEventListener('click', () => {
+        nav.classList.add('active');
+    });
+}
 
+if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+        nav.classList.remove('active');
+    });
+}
 
 
 

@@ -105,7 +105,6 @@ button .normal{
     transition: 0.2s;
   }
 
-
   .overlay {
     position: fixed;
     top: 0;
@@ -143,7 +142,7 @@ button .normal{
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    z-index: 10;
+    z-index: 1000;
     animation: popup 1s ease-in-out 5s forwards;
   }
   
@@ -467,7 +466,7 @@ overflow: hidden;
 display: flex;
 justify-content: center;
 align-items: center;
-gap: 200px;
+gap: 280px;
 
 border-bottom: 1px solid var(--silver-chalice);
 padding: 5px 15px 10px;
@@ -484,7 +483,7 @@ height:auto;
  padding: 20px 40px ;
  background: transparent;
  
- z-index: 1;
+ z-index: 999;
  box-shadow: 0 5px 15px rgb(0, 0, 0,0.06);
  position: sticky;
  top: 0;
@@ -496,9 +495,10 @@ background-color: var(--white_50);
 opacity: 0.98;
 }
 .login-btn,.product1 .pro  a {
-  padding: 10px 30px;
+  padding: 10px 40px;
   background-color: var(--purple);
   border: none;
+  width: 140PX;
   border-radius: 20px;
   color: var(--white);
   cursor: pointer;
@@ -552,12 +552,18 @@ margin-top:25px ;
 display: flex;
 align-items: center;
 justify-content: center;
-gap: 230px;
+gap: 260px;
+margin-left: 400px;
 }
 
 
 
-
+.section{
+display: flex;
+justify-content: center;
+flex-direction: column;
+gap: 60px;
+}
 
 
 
@@ -580,13 +586,15 @@ border: none;
     
 }
 
- 
+.login-btn1{
+width: 200px;
+}
   
       
       .container{
        
   max-width: 100%;
-  max-height: 680px;
+  max-height: auto;
   overflow: hidden;
 margin-top: -210px;
 
@@ -596,7 +604,7 @@ margin-top: -210px;
 
 .filter{
   width: 100%;
-  height: 650px;
+  height: 112%;
   position: absolute;
   top: 0;
   left: 0;
@@ -608,7 +616,7 @@ background-image:linear-gradient(rgba(0, 0, 0, 0.226),rgba(0, 0, 0, 0.733)) ;
 
         .slider-item .banner-video {
           max-width: 100vw; /* Adjust width to cover the entire viewport width */
-          max-height:100vh; /* Adjust height to cover the entire viewport height */
+         /* Adjust height to cover the entire viewport height */
           object-fit: cover;
          
         
@@ -1091,7 +1099,7 @@ font-size: 24px;
   }
   .product1 h2{
   color: var(--white_50);
-  
+ 
   }
 
 
@@ -1294,8 +1302,8 @@ box-shadow: var(--card-shadow);
 min-width: 520px;
   min-height: 325px;
   border-radius: 20px;
-  position: absolute;
-  top: 3410px;
+  position: relative;
+bottom: 332px;
  
   
 }
@@ -1304,7 +1312,7 @@ min-width: 520px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+
 }
 
 .progress-text {
@@ -1400,7 +1408,7 @@ background-color: var(--purple-hover);
   #TESTIMONIALS
 \*-----------------------------------*/
 
-.testi { margin-top: 50px;  background-color: var(--eerie-black-1);
+.testi {  background-color: var(--eerie-black-1);
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -1515,4 +1523,218 @@ footer .install img {
   margin: 10px 0px 15px 0;
 }
 
+.no-search-results{
+color: crimson;
+font-size: 30px;
+}
+.name-list .pub-list ul{
+  
+  background-color: transparent;
+  position: absolute;
+  left: 670px;
+  border-radius: 5px;
+  display: none;
+  box-shadow: var(--card-shadow);
+
+  }
+  .name-list .pub-list a {
+ 
+  padding: 10px;
+  }
+  .name-list .pub-list a li {
+    font-weight: 200;
+
+  }
+  .name-list:hover .pub-list ul{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  }
+  #navbar .name-list a::after {
+ 
+    height: 0px;}
+
+@media (max-width:799px) {
+.header1 .login-btn{
+display: none;
+
+}
+.header2{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+left:-700px;
+  height: 100%;
+  width: 300px;
+  gap: 20px;
+background-color: var(--jet);
+box-shadow: var(--card-shadow);
+  padding: 60px 0 0 50px;
+  transition: 0.3s;
+}
+.header2.active{
+  left:-400px;
+}
+
+.header2 #navbar{
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-top:1px solid var(--platinum);
+}
+.header2 .header-user-actions{
+position: absolute;
+top: 80;
+
+
+}
+.header2 .header-user-actions ion-icon{
+font-size: 32px;
+
+}
+.header2 #navbar li a {
+font-size: 26px;
+}
+#navbar li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height:0px;}
+.header1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:20px;
+  width: 100%;
+}
+.testi .cattest-img {
+width: 50%;
+border-radius: 20px;
+}
+.header1 div{
+display: flex;
+gap: 50px;
+align-items: center;
+}
+.nav-open-btn{
+display: flex;
+
+background-color: transparent;
+border: none;
+font-size: 30px;
+}
+.nav-open-btn ion-icon{
+
+color: var(--purple);
+font-size: 30px;
+}
+.nav-close-btn{
+  display: flex;
+  justify-content: start;
+margin-left: 190px;
+  background-color: transparent;
+  border: none;
+  font-size: 42px;
+  }
+  .nav-close-btn ion-icon{
+  
+  color: var(--purple);
+
+  }
+  .banner-video{
+  width: 130%;
+  }
+  .container .filter{
+  height: 563px;
+  
+  }
+  .banner-content{
+  top: 250px;
+  height: 300px;
+  margin-bottom: 0px;
+  }
+  .banner-title{
+  font-size: 26px;
+  }
+  .contact {
+  margin-left: 90px;
+  }
+  .contact .number{
+  font-size: 22px;
+  }
+  .service-card{
+  padding:15px;
+  }
+  .service-card .btn-link{
+  margin-bottom: 20PX;
+  }
+  .animal-showcase .title {
+ 
+    width: 220px;
+  }
+  .container-anim {
+     display: flex;
+     flex-direction: column; 
+     justify-content: center;
+     align-items: center;
+}
+.sidebar {
+  max-width: 700px;
+position: relative;
+}
+  .sidebar-category {
+  
+    max-width: 700px;}
+    .sidebar-accordion-menu {
+    
+      gap: 480px;}
+      
+      
+        .donate-list {
+          display: flex;
+        flex-direction: column;
+        gap: 0px;
+        }
+        .donate-list li{
+        height: 500px;
+        }
+        .container {
+          max-width: 100%;
+           max-height: 100%;}
+           .card-banner img{
+          width: 100%;
+          }
+          .age-box p{
+           
+              margin: 0px 0 20px 0;
+          }
+          footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;}
+            .modal-content {
+              
+              width: 90%;}
+              .email-field {
+              
+                border-radius: 20px;
+               }
+               .btn-newsletter{
+                border-radius: 20px;
+                margin-top: 10px;
+              
+              }
+              .name-list .pub-list ul {
+              
+                left: 300px;
+                TOP: 260px;
+                BACKGROUND-COLOR: var(--jet);}
+}
 

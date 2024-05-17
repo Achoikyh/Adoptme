@@ -2,24 +2,20 @@
 session_start(); // Start session if not already started
 include 'config.php'; 
 
-$error = array(); // Initialize $error array
+$error = array(); 
 
 if(isset($_POST['submit'])) {
     $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = md5($_POST['password']); // Corrected usage of md5 hash function
+    $password = md5($_POST['password']);
 
-    $select = "SELECT * FROM login WHERE user_name='$username' AND password='$password'";
+    $select = "SELECT * FROM member WHERE user_name='$username' AND user_password='$password'";
     $result = mysqli_query($conn, $select);
 
     if(mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
-        if($row['user_name'] == 'admin') {
-            $_SESSION['user_name'] = $row['user_name'];
-            header('location:index.html');
-        } else {
-            $_SESSION['user_name'] = $row['user_name'];
-            header('location:index.html');
-        }
+       
+            $_SESSION['user_id'] = $row['user_id'];
+            header('location:index.php');
     } else {
         
         $error[] = 'Incorrect email or password!'; 
@@ -33,8 +29,12 @@ if(isset($_POST['submit_signup'])) { // Changed 'submit' to 'submit_signup' to d
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = md5($_POST['password']); 
+    $gender = mysqli_real_escape_string($conn, $_POST['gender']);
+    $city = mysqli_real_escape_string($conn, $_POST['city']);
+    $address= mysqli_real_escape_string($conn, $_POST['address']);
+    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
 
-    $select = "SELECT * FROM login WHERE user_name='$username' || email='$email'";
+    $select = "SELECT * FROM member WHERE user_name='$username' OR user_email='$email'";
     $result = mysqli_query($conn, $select);
 
     if(mysqli_num_rows($result) > 0) {
@@ -42,9 +42,11 @@ if(isset($_POST['submit_signup'])) { // Changed 'submit' to 'submit_signup' to d
         $error[] = 'User already exists!'; 
        
     } else {
-        $insert = "INSERT INTO login (user_name, email, password) VALUES ('$username', '$email', '$password')";
+        $insert = "INSERT INTO member (user_name, user_email, user_password, user_phone , user_city, user_gender, user_address) VALUES ('$username', '$email', '$password', '$phone', '$city', '$gender', '$address')";
         mysqli_query($conn, $insert);
-        header('location:index.html');
+        $row = mysqli_fetch_array($result);
+        $_SESSION['user_id'] = $row['user_id'];
+        header('location:signin-signup.php');
     }
 }
 ?>
@@ -59,6 +61,8 @@ if(isset($_POST['submit_signup'])) { // Changed 'submit' to 'submit_signup' to d
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" type="image/x-icon" href="image/logoh.png"  />
@@ -120,6 +124,8 @@ if(isset($_POST['submit_signup'])) { // Changed 'submit' to 'submit_signup' to d
                   
                 }
                 ?>
+                <div class="list">
+                <div class="gauche">
                 <div class="input-field">
                     <i class="fas fa-user"></i>
                     <input type="text" name="username" placeholder="Username">
@@ -132,6 +138,34 @@ if(isset($_POST['submit_signup'])) { // Changed 'submit' to 'submit_signup' to d
                     <i class="fas fa-lock"></i>
                     <input type="password" name="password" placeholder="Password">
                 </div>
+                </div>
+             
+               
+                <div class="droit">
+                <div class="" class="none">
+               
+                    <select class="input-field" name="gender">
+
+<option id="option1" value="male">Male</option>
+<option id="option2" value="female">Female</option>
+
+
+</select>
+                </div>
+                <div class="input-field">
+                <ion-icon name="earth"></ion-icon>
+                    <input type="text" name="city" placeholder="City">
+                </div>
+                <div class="input-field">
+                <ion-icon name="location"></ion-icon>
+                    <input type="text" name="address" placeholder="full address">
+                </div>
+                </div>
+            </div>
+            <div class="input-field" class="move">
+                <i class="fas fa-phone"></i>
+                <input type="tel" name="phone" placeholder="Phone number">
+            </div>
                 <input type="submit" value="Sign up" name="submit_signup" class="btn">
                 <p class="social-text">Or Sign up with social platform</p>
                                <div class="social-media">

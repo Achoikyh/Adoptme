@@ -1,0 +1,84 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+:root {
+
+  /**
+   * colors
+   */
+
+ 
+  --medium-turquoise:  #B6C9F0 ;
+  --silver-chalice: hsl(0, 0%, 70%);
+  --eerie-black-1: #212121;
+  --eerie-black-2: hsl(0, 0%, 15%);
+  --eerie-black-3: hsl(228, 10%, 10%);
+  --raisin-black: hsl(220, 8%, 14%);
+  --granite-gray: hsl(0, 0%, 38%);
+  --sonic-silver: hsl(0, 0%, 47%);
+  --purple-hover: #D4739A;
+  --baby-powder: #f8faf4;
+  --baby-powder_o: #f8faf4cb;
+  --light-gray: hsl(0, 0%, 80%);
+  --purple: #E998B6;
+  --pink:#FFDBCC ;
+  --pink-back:#fff2ec ;
+  --platinum: hsl(0, 0%, 91%);
+  --cultured: hsl(0, 0%, 94%);
+  --white-60: hsla(0, 0%, 100%, 0.6);
+  --white_50: hsla(0, 0%, 9%, 0.397);
+  --white_10: hsla(0, 0%, 100%, 0.1);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --jet: #2e2e2e;
+
+
+  --card-shadow: 0 5px 20px -8px hsla(0, 0%, 0%, 0.315);
+  --card-shadow-hover: 0 5px 20px -8px hsla(0, 0%, 0%, 0.582);
+  
+}
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif;
+
+}
+
+.direct{
+display: flex;
+justify-content: start;
+align-items: center;
+gap: 5px;
+margin: 60px;
+margin-top: 180px;
+font-size: 20px;
+
+}
+.direct li a{
+color: var(--purple) ;
+}
+h3{
+text-align: center;
+color: var(--sonic-silver);
+font-size: 24px;
+letter-spacing: 1px;
+
+}
+footer{
+    
+  background-color: var(--baby-powder);
+  }
+  .col h4{
+  border-bottom: 0px;
+  color: var(--jet);
+  }
+  .follow .icon ion-icon{
+  color: var(--jet);
+  }
+
+  .product1 .pro .des {
+  
+  bottom:160px;
+ 
+  
+  }
